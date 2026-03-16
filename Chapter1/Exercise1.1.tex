@@ -1,0 +1,151 @@
+\begin{enumerate}
+\item \textbf{Quantum dice and coins.}
+You are given two unusual three-sided dice
+which, when rolled, show either one, two, or
+three spots. There are three games played with
+these dice: Distinguishable, Bosons, and Fermions.
+In each turn in these games, the player
+rolls the two dice, starting over if required by the
+rules, until a legal combination occurs. In Distinguishable,
+all rolls are legal. In Bosons, a roll
+is legal only if the second of the two dice shows
+a number that is is larger or equal to that of the
+first of the two dice. In Fermions, a roll is legal
+only if the second number is strictly larger than
+the preceding number. See Fig. 1.4 for a table of
+possibilities after rolling two dice.
+Our dice rules are the same ones that govern
+the quantum statistics of noninteracting identical
+particles.
+
+\begin{enumerate}
+\item Presume the dice are fair: each of the three numbers of dots shows up 1/3 of the time. For a legal turn rolling a die twice in the three games (Distinguishable, Bosons, and Fermions), what is the probability $p(5)$ of rolling a 5?
+
+
+
+
+In this exercise, the quantum dice mimic distinguishable particles, bosons and fermions. Each die corresponds to a quantum particle and each face value corresponds to a quantum state. Rolling both dice corresponds to a system of two particles in state $a$ and $b$ each. We define a two particle state:
+
+$$
+|a,b> = |a>_1 \otimes |b>_2
+$$
+
+For distinguishable particles, particle 1 being in state $a$ and particle 2 being in state $b$ is different than particle 1 being in state $b$ and particle 2 being in state $a$. So $|a,b>$ and $|b,a>$ are two different two-particle states. 
+
+For our \textit{Distinguishable} game in our quantum dice, the probability $p(5)$ of rolling a 5 is $\frac{2}{9}$ since $(2,3)$ and $(3,2)$ are two different two-particle states.
+
+In our $\textit{Bosons}$ game, $(2,3)$ and $(3,2)$ represent the same state. By following the convention of $b \geq a$ we avoid double counting. Since we only have six possible options, $p(5) = \frac{1}{6}$
+
+In quantum notation,
+$$
+|a,b> = |b,a>
+$$
+In the $\textit{Fermions}$ game, from the antisymmetric property of the two-particle wave function,
+$$
+|a,b> = -|b,a>
+$$
+
+Thus, 
+$$
+|a,a> = -|a,a>
+$$
+
+and $|a,a> = 0 $. Two fermions cannot occupy the same quantum state. In our \textit{Fermions} game, this is represented as the strict $b>a$ condition. Since we only have three possible options, $p(5) = \frac{1}{3}$.
+
+
+\item For a legal turn in the three games, what is
+the probability of rolling a double? (Hint: There
+is a Pauli exclusion principle: when playing Fermions,
+no two dice can have the same number
+of dots showing.) Electrons are fermions; no
+two noninteracting electrons can be in the same
+quantum state. Bosons are gregarious (Exercise
+7.9); noninteracting bosons have a larger
+likelihood of being in the same state.
+
+For the \textit{Distinguishable} game every possibility is legal. Since we have nine options and three possible doubles $p(double) = \frac{1}{3}$.
+
+
+For the \textit{Bosons} game, double states are valid but we have only six possibilities. $p(double) = \frac{1}{2}$.
+
+In the \textit{Fermions} game, the possibility of doubles is explicitly excluded so $p(double) = 0$.
+
+
+
+
+\item Let us decrease the number of sides on our dice to $N=2$, making them quantum coins, with a head $H$ and a tail $T$. Let us increase the total number of coins to a large number $M$; we flip a line of $M$ coins all at the same time, repeating until a legal sequence occurs. In the rules for legal flips of quantum coins, let us make $T < H$. A legal Boson sequence, for example, is then a pattern $TTTT...HHHH...$ of length $M$; all legal sequences have the same probability. What is the probability in each of the games, of getting all the M flips of our quantum coin the same (all heads $HHHH...$ or all tails $TTTT...$ )? (Hint: How many legal sequences are there for the three games? How many of these are all the same value?)
+
+
+For the \textit{Distinguishable} game, there are $2^M$ possible sequences of $H$ and $T$. Only two of these sequences are all the same, so $p = \frac{2}{2^M} = 2^{-M}$.
+
+In the \textit{Bosons} game, there are $M+1$ legal sequences, since we can count the two sequences with all $H$ or $T$, plus the $M-1$ sequences where we have one $T$ and $M-1$ $H$'s, two $T$'s and $M-2$ $H$'s, etc. Only two of these sequences are all the same, so $p = \frac{2}{M+1}$.
+
+In the \textit{Fermions} game, no two coins can be the same, so there are no legal sequences. Thus, $p = 0$.
+
+The probability of finding a particular legal sequence in Bosons is larger by a constant factor due to discarding the illegal sequences. This factor is just one over the probability of a given toss of the coins being legal, $Z = \sum_{\alpha} p_\alpha$ summed over legal sequences $\alpha$. For part (c), all sequences have equal probabilities $p_{\alpha} = 2^{-M}$, so $Z_{Dist} = (2^M)(2^{-M}) = 1$, and $Z_{Boson}$ is $2^{-M}$ times the number of legal sequences. So for
+part (c), the probability to get all heads or all tails is $(p_{TTT}...+p_{HHH}...)/Z$. The normalization constant $Z$ in statistical mechanics is called the partition function, and will be amazingly useful (see Chapter 6).
+
+
+
+\item Let us now consider a biased coin, with probability $p = 1/3$ of landing H and thus $1-p = 2/3$ of landing T. Note that if two sequences are legal in both Bosons and Distinguishable, their relative probability is the same in both games. What is the probability $p_{TTT}...$ that a given toss of M coins has all tails (before we throw out the illegal ones for our game)? What is $Z_{Dist}$? What is the probability that a toss in Distinguishable is all tails? If $Z_{Bosons}$ is the probability that a toss is legal in Bosons, write the probability that a legal toss is all tails in terms of $Z_{Bosons}$. Write the probability $p_{TTT...HHH}$ that a toss has $M-m$ tails followed by $m$ heads (before
+throwing out the illegal ones). Sum these
+to find $Z_{Bososn}$. As M gets large, what is the probability in Bosons that all coins flip tails?
+
+
+Counting both legal and illegal sequences, there are $2^M$ possible sequences of H and T.
+The probability of obtaining one of those sequences (all tails) according to the given probabilities can be thought of as a Bernoulli trial with $M$ independent flips, each with probability $p = 2/3$ of being T and $1-p = 1/3$ of being H. Thus, the probability of getting all tails is:
+$$
+p_{TTT...} = \binom{M}{0} p^0 (1-p)^{M} = (2/3)^{M} = (2/3)^M
+$$
+
+All sequences are legal in \textit{Distinguishable}. $Z_{Dist}$ must equal 1. Each sequence has $k$ heads and $M-k$ tails. The probability of all sequences with $k$ heads and $M-k$ tails is $p_{\alpha} = \binom{M}{k} p^{k} (1-p)^{M-k}$. The sum of all probabilities is
+
+$$
+\sum_{\alpha} p_{\alpha} = \sum^{M} \binom{M}{k} p^{k} (1-p)^{M-k}
+$$
+
+From the binomial theorem,
+
+$$
+\sum_{\alpha} p_{\alpha} = \sum^{M} \binom{M}{k} p^{k} (1-p)^{M-k} = (1)^M = 1
+$$
+
+The probability that a toss in \textit{Distinguishable} is all tails is $\frac{p_{TTT...}}{Z_{Disti} = 1} = (2/3)^M$.
+
+The probability that a toss is legal in \textit{Bosons} is $\frac{p_{TTT...}}{Z_{Bosons}}$. The probability $p_{TTT...HHH}$ that a toss has $M-m$ tails followed by $m$ heads is
+
+$$
+p_{TTT...HHH} =  p^{m} (1-p)^{M-m}
+$$
+
+With no binomial coefficient since there is only one way to have $M-m$ tails followed by $m$ heads. We sum these to find $Z_{Bosons}$
+
+$$
+Z_{Bosons} = \sum^{M}_{m=0} p^{m} (1-p)^{M-m} = (1-p)^M \sum^{M}_{m=0} (\frac{p}{1-p})^m  = (\frac{2}{3})^M \sum^{M}_{m=0} (\frac{1}{2})^m 
+$$
+
+
+This is a geometric series, so we can write
+
+$$  
+Z_{Bosons} = (\frac{2}{3})^M \frac{1-(\frac{1}{2})^{M+1}}{1-\frac{1}{2}} = 2(\frac{2}{3})^M (1-(\frac{1}{2})^{M+1})
+$$
+
+Finally, the probability in \textit{Bosons} that all coins flip tails is
+
+$$
+p_{TTT...} = \frac{p_{TTT...}}{Z_{Bosons}} = \frac{(2/3)^M}{2(\frac{2}{3})^M (1-(\frac{1}{2})^{M+1})} = \frac{1}{2(1-(\frac{1}{2})^{M+1})}
+$$
+
+
+
+
+As $M \to \infty$, $(\frac{1}{2})^M \to 0$. The probability $p_{TTT...}$ is thus
+
+$$
+p_{TTT...} = \frac{1}{2(1-0)} = \frac{1}{2}
+$$
+\end{enumerate}
+
+
+\end{enumerate}
